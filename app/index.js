@@ -14,21 +14,6 @@ module.exports = class extends Generator {
 			type: 'string',
 			desc: 'Publish to a GitHub organization account'
 		});
-
-		this.option('cli', {
-			type: 'boolean',
-			desc: 'Add a CLI'
-		});
-
-		this.option('coverage', {
-			type: 'boolean',
-			desc: 'Add code coverage with nyc'
-		});
-
-		this.option('codecov', {
-			type: 'boolean',
-			desc: 'Upload coverage to codecov.io (implies coverage)'
-		});
 	}
 	init() {
 		return this.prompt([{
@@ -52,31 +37,7 @@ module.exports = class extends Generator {
 			store: true,
 			validate: x => x.length > 0 ? true : 'You have to provide a website URL',
 			filter: x => normalizeUrl(x)
-		}, {
-			name: 'cli',
-			message: 'Do you need a CLI?',
-			type: 'confirm',
-			default: Boolean(this.options.cli),
-			when: () => this.options.cli === undefined
-		}, {
-			name: 'nyc',
-			message: 'Do you need code coverage?',
-			type: 'confirm',
-			default: Boolean(this.options.codecov || this.options.coverage),
-			when: () => (this.options.coverage === undefined) && (this.options.codecov === undefined)
-		}, {
-			name: 'codecov',
-			message: 'Upload coverage to codecov.io?',
-			type: 'confirm',
-			default: false,
-			when: x => (x.nyc || this.options.coverage) && (this.options.codecov === undefined)
 		}]).then(props => {
-			const or = (option, prop) => this.options[option] === undefined ? props[prop || option] : this.options[option];
-
-			const cli = or('cli');
-			const codecov = or('codecov');
-			const nyc = codecov || or('coverage', 'nyc');
-
 			const repoName = utils.repoName(props.moduleName);
 
 			const tpl = {
@@ -89,9 +50,6 @@ module.exports = class extends Generator {
 				email: this.user.git.email(),
 				website: props.website,
 				humanizedWebsite: humanizeUrl(props.website),
-				cli,
-				nyc,
-				codecov
 			};
 
 			const mv = (from, to) => {
@@ -113,6 +71,7 @@ module.exports = class extends Generator {
 			mv('travis.yml', '.travis.yml');
 			mv('npmrc', '.npmrc');
 			mv('_package.json', 'package.json');
+			mv('rollup.config.js', 'rollup.config.js');
 		});
 	}
 	git() {

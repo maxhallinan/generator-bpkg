@@ -1,18 +1,12 @@
-# generator-nm [![Build Status](https://travis-ci.org/sindresorhus/generator-nm.svg?branch=master)](https://travis-ci.org/sindresorhus/generator-nm)
+# generator-bpkg
 
-> Scaffold out a [node module](https://github.com/sindresorhus/node-module-boilerplate)
-
-Optionally with a [CLI](http://en.wikipedia.org/wiki/Command-line_interface).
-
-This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
-
-![](screenshot.png)
+Generate a module that targets a browser environment.
 
 
 ## Install
 
 ```
-$ npm install --global yo generator-nm
+$ npm install --global yo generator-bpkg
 ```
 
 
@@ -45,11 +39,6 @@ $ yo nm --help
 The `--org` option takes a string value (i.e. `--org=avajs`). All others are boolean flags and can be negated with the `no` prefix (i.e. `--no-codecov`). You will be prompted for any options not passed on the command-line.
 
 
-## Tip
-
-Use [chalk](https://github.com/sindresorhus/chalk) if you want colors in your CLI.
-
-
 ## License
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+MIT © [Max Hallinan](https://github.com/maxhallinan)

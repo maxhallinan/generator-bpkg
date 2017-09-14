@@ -1,13 +1,12 @@
 {
-  "name": "generator-nm",
-  "version": "3.5.0",
-  "description": "Scaffold out a node module",
+  "name": "generator-bpkg",
+  "version": "0.0.0",
+  "description": "Generate a module that targets a browser environment",
   "license": "MIT",
-  "repository": "sindresorhus/generator-nm",
+  "repository": "maxhallinan/generator-bpkg",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
+    "name": "Max Hallinan",
+    "email": "maxhallinan@riseup.net"
   },
   "engines": {
     "node": ">=4"
@@ -28,8 +27,7 @@
     "module",
     "node_module",
     "node-module",
-    "init",
-    "sindre"
+    "init"
   ],
   "dependencies": {
     "humanize-url": "^1.0.1",
