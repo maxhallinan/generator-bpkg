@@ -1,7 +1,11 @@
 language: node_js
 node_js:
   - '8'
+  - '7'
   - '6'
-  - '4'<% if (codecov) { %>
+  - '4'
+script:
+  - npm run lint
+  - npm run test
 after_script:
-  - './node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && ./node_modules/.bin/codecov'<% } %>
+  - npm run coverage
