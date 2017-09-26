@@ -27,10 +27,10 @@ $ yo bpkg --help
     yo nm [options]
 
   Options:
-	  -h,   --help    # Print the generator's options and usage
-		--skip-cache    # Do not remember prompt answers             Default: false
-		--skip-install  # Do not automatically install dependencies  Default: false
-		--org           # Publish to a GitHub organization account
+    -h,   --help    # Print the generator's options and usage
+    --skip-cache    # Do not remember prompt answers             Default: false
+    --skip-install  # Do not automatically install dependencies  Default: false
+    --org           # Publish to a GitHub organization account
 ```
 
 The `--org` option takes a string value (i.e. `--org=foo`). All others are boolean
