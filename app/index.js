@@ -1,5 +1,4 @@
 'use strict';
-const superb = require('superb');
 const normalizeUrl = require('normalize-url');
 const humanizeUrl = require('humanize-url');
 const Generator = require('yeoman-generator');
@@ -24,7 +23,7 @@ module.exports = class extends Generator {
 		}, {
 			name: 'moduleDescription',
 			message: 'What is your module description?',
-			default: `My ${superb()} module`
+			default: ``
 		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
@@ -71,10 +70,19 @@ module.exports = class extends Generator {
 			mv('_package.json', 'package.json');
 		});
 	}
-	git() {
+	_private_method_git() {
 		this.spawnCommandSync('git', ['init']);
+		this.spawnCommandSync('git', ['add', '--all']);
+		this.spawnCommandSync('git', ['commit', '-m', 'Initial commit']);
 	}
 	install() {
-		this.installDependencies({bower: false});
+		this.installDependencies({
+			bower: false,
+			npm: false,
+			yarn: true,
+		});
+	}
+	end() {
+		this._private_method_git();
 	}
 };

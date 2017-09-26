@@ -1,41 +1,32 @@
-# <%= repoName %> [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>)<% if (codecov) { %> [![codecov](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>?branch=master)<% } %>
+# <%= repoName %> [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>)[![codecov](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://coveralls.io/repos/github/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)
 
-> <%= moduleDescription %>
+<%= moduleDescription %>
 
 
 ## Install
 
 ```
-$ npm install <%= moduleName %>
+$ yarn install <%= moduleName %>
 ```
 
 
 ## Usage
 
 ```js
-const <%= camelModuleName %> = require('<%= moduleName %>');
+import <%= camelModuleName %> from '<%= moduleName %>';
 
-<%= camelModuleName %>('unicorns');
-//=> 'unicorns & rainbows'
+<%= camelModuleName %>('foo');
+//=> 'foo'
 ```
 
 
 ## API
 
-### <%= camelModuleName %>(input, [options])
+### <%= camelModuleName %>(input)
 
 #### input
 
 Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
 
 Lorem ipsum.
 

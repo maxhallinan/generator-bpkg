@@ -1,10 +1,8 @@
 'use strict';
-export default (input, opts) => {
-	if (typeof input !== 'string') {
-		throw new TypeError(`Expected a string, got ${typeof input}`);
+export default (str) => {
+	if (typeof str !== 'string') {
+		throw new TypeError(`Expected a string, got ${typeof str}`);
 	}
 
-	opts = opts || {};
-
-	return input + ' & ' + (opts.postfix || 'rainbows');
+	return str;
 };
