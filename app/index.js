@@ -62,6 +62,7 @@ module.exports = class extends Generator {
 			mv('babelrc', '.babelrc');
 			mv('editorconfig', '.editorconfig');
 			mv('eslintrc.json', '.eslintrc.json');
+			mv('flowconfig', '.flowconfig');
 			mv('gitattributes', '.gitattributes');
 			mv('gitignore', '.gitignore');
 			mv('travis.yml', '.travis.yml');
